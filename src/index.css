@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* <link rel="preconnect" href="https://fonts.googleapis.com"></link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> */
+/* :root{
+    background-image: url('../src/assets/images/Rectangle1.png');
+background-size: cover;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.7);
+    background-repeat: no-repeat;
+} */
