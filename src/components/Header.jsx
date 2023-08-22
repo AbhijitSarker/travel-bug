@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import logo from '../assets/images/logoo.png';
 import './Header.css'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faMapPin, faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { AuthContext } from '../proviers/AuthProvider';
 
 
 const Header = () => {
 
     const [open, setOpen] = useState(false);
-    console.log(open);
+
+    const { user, logout } = useContext(AuthContext);
+
+
+    const handleLogOut = () => {
+        logout();
+    }
     return (
 
         <nav className='navbar-items z-10 md:sticky top-3 bg-white rounded-md p-2 flex justify-between items-center shadow-lg container mx-auto mt-3'>
@@ -33,9 +40,19 @@ const Header = () => {
                 <Link className='hover:bg-orange-400 px-2 py-2 transition duration-250 ease-out hover:ease-in rounded-md hover:text-white' >About</Link>
                 <Link className='hover:bg-orange-400 px-2 py-2 transition duration-250 ease-out hover:ease-in rounded-md hover:text-white' >Contact</Link>
 
-                <button className='border-2 border-orange-300 font-medium hover:bg-orange-400 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in hover:text-white'>Login</button>
-                <button className='border-2 border-orange-300 font-medium hover:bg-orange-400 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in hover:text-white'>SignUp</button>
+                {
+                    user && <p>{user.email}</p>
+                }
 
+                <button onClick={handleLogOut} className='border-2 border-orange-300 font-medium hover:bg-orange-400 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in hover:text-white'>LogOut</button>
+
+                <Link to='/login'>
+                    <button className='border-2 border-orange-300 font-medium hover:bg-orange-400 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in hover:text-white'>Login</button>
+                </Link>
+                <Link to='/register'>
+                    <button className='border-2 border-orange-300 font-medium hover:bg-orange-400 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in hover:text-white'>SignUp</button>
+
+                </Link>
             </div>
 
         </nav>
