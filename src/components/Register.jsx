@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../proviers/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
 
@@ -8,6 +9,7 @@ const Register = () => {
     const [error, setError] = useState('');
 
     const navigate = useNavigate();
+
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -42,7 +44,7 @@ const Register = () => {
         <div className="bg-white p-6 container mx-auto mt-10 w-1/2 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-4">Registration</h2>
             <form onSubmit={handleRegister}>
-                <div className="mb-4">
+                <div className="mb-4 ">
                     <label className="block text-gray-700 text-sm font-bold mb-1" htmlFor="firstName">
                         Name
                     </label>
@@ -95,11 +97,11 @@ const Register = () => {
 
                 <button
                     type="submit"
-                    className="border-2 bg-orange-300 border-orange-300 font-medium hover:bg-orange-400 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in text-black hover:text-white"
+                    className="border-2 w-full bg-orange-300 border-orange-300 font-medium hover:bg-orange-400 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in text-black hover:text-white"
                 >
                     Register
                 </button>
-                <p className='mt-5 text-black'>Already Have an Account? <Link className='text-orange-500' to='/login'>Login</Link></p>
+                <p className='mt-5  text-black'>Already Have an Account? <Link className='text-orange-500' to='/login'>Login</Link></p>
             </form>
         </div>
 

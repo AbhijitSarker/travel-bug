@@ -3,7 +3,7 @@ import { AuthContext } from '../proviers/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    const { login } = useContext(AuthContext)
+    const { login, googleSignIn } = useContext(AuthContext)
 
     const navigate = useNavigate()
 
@@ -16,6 +16,10 @@ const Login = () => {
                 event.target.reset();
                 navigate('/')
             })
+    }
+
+    const handleGoogleLogin = () => {
+        googleSignIn()
     }
 
     return (
@@ -49,13 +53,19 @@ const Login = () => {
                     </div>
                     <button
                         type="submit"
-                        className="border-2 bg-orange-300 border-orange-300 font-medium hover:bg-orange-400 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in text-black hover:text-white"
+                        className="border-2 w-full bg-orange-300 border-orange-300 font-medium hover:bg-orange-400 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in text-black hover:text-white"
                     >
                         Login
                     </button>
                     <p className='mt-5 text-black'>Don't Have an Account? <Link className='text-orange-500' to='/register'>Register</Link></p>
-
                 </form>
+                <button
+                    onClick={handleGoogleLogin}
+                    className="border-2 w-full bg-orange-300 border-orange-300 font-medium hover:bg-orange-400 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in text-black hover:text-white"
+                >
+                    Login With Google
+                </button>
+
             </div>
         </div>
     );
