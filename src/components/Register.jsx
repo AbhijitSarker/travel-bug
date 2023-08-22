@@ -1,24 +1,39 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../proviers/AuthProvider';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
     const { createUser } = useContext(AuthContext);
+    const [error, setError] = useState('');
+
+    const navigate = useNavigate();
 
     const handleRegister = (event) => {
         event.preventDefault();
 
         const email = event.target.email.value;
         const password = event.target.password.value;
-        // const confirmPassword = event.target.confirmPassword.value;
-        console.log(email, password);
+        const confirmPassword = event.target.confirmPassword.value;
+
+        setError('');
+        if (password !== confirmPassword) {
+            setError('Password did not match')
+            return;
+        }
+        else if (password.length < 6) {
+            setError('Password must be at least 6 characters')
+            return;
+        }
 
         createUser(email, password)
             .then(result => {
                 console.log(result.user)
+                event.target.reset();
+                navigate('/')
             })
             .catch(error => {
-                console.log(error)
+                setError(error.message);
             })
     }
 
@@ -36,7 +51,6 @@ const Register = () => {
                         name="name"
                         id="name"
                         className="w-full border rounded-md py-2 px-3"
-
                         required
                     />
                 </div>
@@ -50,8 +64,6 @@ const Register = () => {
                         name="email"
                         id="email"
                         className="w-full border rounded-md py-2 px-3"
-
-
                         required
                     />
                 </div>
@@ -64,11 +76,10 @@ const Register = () => {
                         name="password"
                         id="password"
                         className="w-full border rounded-md py-2 px-3"
-
                         required
                     />
                 </div>
-                {/* <div className="mb-4">
+                <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-1" htmlFor="confirmPassword">
                         Confirm Password
                     </label>
@@ -77,16 +88,18 @@ const Register = () => {
                         name="confirmPassword"
                         id="confirmPassword"
                         className="w-full border rounded-md py-2 px-3"
-
                         required
                     />
-                </div> */}
+                </div>
+                <p className='text-red-700 mb-3'> {error}</p>
+
                 <button
                     type="submit"
-                    className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
+                    className="border-2 bg-orange-300 border-orange-300 font-medium hover:bg-orange-400 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in text-black hover:text-white"
                 >
                     Register
                 </button>
+                <p className='mt-5 text-black'>Already Have an Account? <Link className='text-orange-500' to='/login'>Login</Link></p>
             </form>
         </div>
 

@@ -43,16 +43,18 @@ const Header = () => {
                 {
                     user && <p>{user.email}</p>
                 }
+                {
+                    user ?
+                        <button onClick={handleLogOut} className='border-2 border-orange-300 font-medium hover:bg-orange-400 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in hover:text-white'>LogOut</button>
+                        : <>
+                            <Link to='/login'>
+                                <button className='border-2 border-orange-300 font-medium bg-orange-300 hover:bg-orange-400 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in hover:text-white'>Login</button>
+                            </Link>
 
-                <button onClick={handleLogOut} className='border-2 border-orange-300 font-medium hover:bg-orange-400 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in hover:text-white'>LogOut</button>
+                        </>
+                }
 
-                <Link to='/login'>
-                    <button className='border-2 border-orange-300 font-medium hover:bg-orange-400 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in hover:text-white'>Login</button>
-                </Link>
-                <Link to='/register'>
-                    <button className='border-2 border-orange-300 font-medium hover:bg-orange-400 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in hover:text-white'>SignUp</button>
 
-                </Link>
             </div>
 
         </nav>

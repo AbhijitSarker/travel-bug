@@ -1,19 +1,26 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../proviers/AuthProvider';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const { login } = useContext(AuthContext)
+
+    const navigate = useNavigate()
 
     const handleLogin = (event) => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
-        login(email, password);
+        login(email, password)
+            .then(result => {
+                event.target.reset();
+                navigate('/')
+            })
     }
 
     return (
         <div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className=" container mx-auto w-1/2 mt-10 bg-white p-6 rounded-lg shadow-md">
                 <h2 className="text-xl font-semibold mb-4">Login</h2>
                 <form onSubmit={handleLogin}>
                     <div className="mb-4">
@@ -42,10 +49,12 @@ const Login = () => {
                     </div>
                     <button
                         type="submit"
-                        className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
+                        className="border-2 bg-orange-300 border-orange-300 font-medium hover:bg-orange-400 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in text-black hover:text-white"
                     >
                         Login
                     </button>
+                    <p className='mt-5 text-black'>Don't Have an Account? <Link className='text-orange-500' to='/register'>Register</Link></p>
+
                 </form>
             </div>
         </div>
