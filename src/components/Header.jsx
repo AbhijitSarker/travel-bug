@@ -37,11 +37,11 @@ const Header = () => {
                 <Link className='hover:bg-orange-400 px-2 py-2 transition duration-250 ease-out hover:ease-in rounded-md hover:text-white' to='/'><FontAwesomeIcon icon={faHome} /> Home</Link>
                 <Link className='hover:bg-orange-400 px-2 py-2 transition duration-250 ease-out hover:ease-in rounded-md hover:text-white' to='/destinations'> <FontAwesomeIcon icon={faMapPin} /> Destinations</Link>
                 <Link className='hover:bg-orange-400 px-2 py-2 transition duration-250 ease-out hover:ease-in rounded-md hover:text-white' >Blogs</Link>
-                <Link className='hover:bg-orange-400 px-2 py-2 transition duration-250 ease-out hover:ease-in rounded-md hover:text-white' >About</Link>
+                <Link className='hover:bg-orange-400 px-2 py-2 transition duration-250 ease-out hover:ease-in rounded-md hover:text-white' to='/about'>About</Link>
                 <Link className='hover:bg-orange-400 px-2 py-2 transition duration-250 ease-out hover:ease-in rounded-md hover:text-white' >Contact</Link>
 
                 {
-                    user && <p>{user.email}</p>
+                    user && <p>{user.name}</p>
                 }
                 {
                     user ?

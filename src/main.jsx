@@ -14,6 +14,7 @@ import Destinations from './components/Destinations';
 import AuthProvider from './proviers/AuthProvider';
 import Register from './components/Register';
 import Login from './components/Login';
+import About from './components/About';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,11 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login></Login>
+      },
+      {
+
+        path: 'about',
+        element: <About></About>
       }
     ]
   },
