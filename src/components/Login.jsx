@@ -20,11 +20,14 @@ const Login = () => {
 
     const handleGoogleLogin = () => {
         googleSignIn()
+            .then(result => {
+                navigate('/')
+            })
     }
 
     return (
         <div>
-            <div className=" container mx-auto w-1/2 mt-10 bg-white p-6 rounded-lg shadow-md">
+            <div className=" container mx-auto w-80 mt-10 bg-white p-6 rounded-lg shadow-md">
                 <h2 className="text-xl font-semibold mb-4">Login</h2>
                 <form onSubmit={handleLogin}>
                     <div className="mb-4">

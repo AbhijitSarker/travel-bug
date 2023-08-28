@@ -45,7 +45,7 @@ const Header = () => {
                 }
                 {
                     user ?
-                        <button onClick={handleLogOut} className=' border-orange-400 font-medium hover:bg-orange-500 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in hover:text-white'>LogOut</button>
+                        <button onClick={handleLogOut} className=' bg-orange-400 font-medium hover:bg-orange-500 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in hover:text-white'>LogOut</button>
                         : <>
                             <Link to='/login'>
                                 <button className='  font-medium bg-orange-400 hover:bg-orange-500 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in hover:text-white'>Login</button>
