@@ -30,7 +30,7 @@ const Slider = ({ destination }) => {
                     </div>
                     <div className=''>
                         <p className='hidden md:inline mr-4 text-2xl mb-2 font-semi-bold text-white'>Adventure Awaits. Are You Ready?</p>
-                        <Link><button className='float-right  font-medium bg-orange-400 hover:bg-orange-500 rounded-lg py-1 px-4 transition  duration-250 ease-out hover:ease-in text-black py-1 my-1 hover:text-white'>Visit-❯</button></Link>
+                        <Link to={`/destination/${id}`}><button className='float-right  font-medium bg-orange-400 hover:bg-orange-500 rounded-lg py-1 px-4 transition  duration-250 ease-out hover:ease-in text-black py-1 my-1 hover:text-white'>Visit-❯</button></Link>
 
 
                     </div>

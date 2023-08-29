@@ -8,12 +8,14 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const googleProvider = new GoogleAuthProvider();
 
     const googleSignIn = () => {
-        signInWithPopup(auth, googleProvider);
+        setLoading(true);
+
+        return signInWithPopup(auth, googleProvider);
     }
     const createUser = (email, password) => {
         setLoading(true);
@@ -40,7 +42,9 @@ const AuthProvider = ({ children }) => {
 
         });
 
-        return () => unsubscribe();
+        return () => {
+            unsubscribe();
+        }
     }, [])
 
     const authInfo = {

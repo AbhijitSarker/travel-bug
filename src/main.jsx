@@ -17,6 +17,7 @@ import Login from './components/Login';
 import About from './components/About';
 import Destination from './components/Destination';
 import Blogs from './components/Blogs';
+import PrivateRoute from './components/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/destination/:id',
-        element: <Destination></Destination>,
+        element: <PrivateRoute><Destination></Destination></PrivateRoute>,
         loader: ({ params }) => fetch(`https://travel-bug-server-abhijitsarker.vercel.app/destination/${params.id}`)
       },
       {

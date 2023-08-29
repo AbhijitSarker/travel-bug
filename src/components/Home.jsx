@@ -19,7 +19,6 @@ const Home = () => {
 
             <Hero></Hero>
 
-
             <div className='absolute top-full w-full mx-auto'>
                 <Destinations></Destinations>
             </div>
