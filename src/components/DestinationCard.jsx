@@ -14,23 +14,23 @@ const DestinationCard = ({ destination }) => {
                     <FaRegBookmark />
                 </div>
                 <div className='flex border-b'>
-                    <p className='text-slate-500'>{country}</p>
+                    <p className='text-slate-500 text-left'>{country}</p>
                     <p className='text-right text-slate-500'>{type}</p>
                 </div>
                 <div className='flex justify-between'>
                     <div>
-                        <h4 className='text-xl font-semibold my-3'>Highlights</h4>
-                        {highlights.map(p => <p >{p}</p>)}
+                        <h4 className='text-xl text-left font-semibold my-3'>Highlights</h4>
+                        {highlights.map(p => <p className='text-left text-slate-500'>{p}</p>)}
                     </div>
                     <div>
                         <h4 className='text-xl text-right font-semibold my-3'>Activities</h4>
                         {
-                            activities.map(a => <p className='text-right'>{a.name}</p>)
+                            activities.map(a => <p className='text-right text-slate-500'>{a.name}</p>)
                         }
                     </div>
                 </div>
                 <div className="card-actions justify-end">
-                    <Link to='/login'>
+                    <Link to={`/destination/${id}`}>
                         <button className=' text-black font-medium bg-orange-400 hover:bg-orange-500 rounded-lg py-2 px-4 transition duration-250 ease-out hover:ease-in hover:text-white'>Details</button>
                     </Link>
                 </div>

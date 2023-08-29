@@ -15,6 +15,8 @@ import AuthProvider from './proviers/AuthProvider';
 import Register from './components/Register';
 import Login from './components/Login';
 import About from './components/About';
+import Destination from './components/Destination';
+import Blogs from './components/Blogs';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,11 @@ const router = createBrowserRouter([
         element: <Destinations></Destinations>
       },
       {
+        path: '/destination/:id',
+        element: <Destination></Destination>,
+        loader: ({ params }) => fetch(`https://travel-bug-server-abhijitsarker.vercel.app/destination/${params.id}`)
+      },
+      {
         path: '/register',
         element: <Register></Register>
       },
@@ -38,9 +45,12 @@ const router = createBrowserRouter([
         element: <Login></Login>
       },
       {
-
         path: 'about',
         element: <About></About>
+      },
+      {
+        path: '/blogs',
+        element: <Blogs></Blogs>
       }
     ]
   },
