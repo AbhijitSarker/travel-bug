@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import DestinationCard from './DestinationCard';
+import Footer from './Footer';
 
 
 const Destinations = () => {
@@ -19,6 +20,8 @@ const Destinations = () => {
                     destinations.map(destination => <DestinationCard key={destination.id} destination={destination} ></DestinationCard>)
                 }
             </div>
+
+            <Footer></Footer>
         </>
     );
 };
